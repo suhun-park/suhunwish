@@ -19,7 +19,7 @@ class MyHomepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: Text(
+            title: const Text(
               "당근마켓",
               style: TextStyle(
                 color: Colors.deepOrangeAccent,
@@ -31,21 +31,21 @@ class MyHomepage extends StatelessWidget {
             elevation: 0.0,
             actions: <Widget>[
               IconButton(
-                icon: Icon(Icons.search),
+                icon: const Icon(Icons.search),
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => SearchScreen()));
                 },
               ),
               IconButton(
-                icon: Icon(Icons.menu),
+                icon: const Icon(Icons.menu),
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => MenuScreen()));
                 },
               ),
               IconButton(
-                icon: Icon(Icons.insert_emoticon_rounded),
+                icon: const Icon(Icons.notifications_active),
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => AlarmScreen()));
@@ -53,7 +53,7 @@ class MyHomepage extends StatelessWidget {
               )
             ]),
         body: Container(
-          child: Text("텍스트1"),
+          child: const Text("텍스트1"),
         ));
   }
 }
@@ -63,10 +63,30 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("두 번째"),
+        backgroundColor: Colors.black,
+        centerTitle: false,
+
+        title: const TextField(
+          decoration: InputDecoration(
+
+              hintText: '중동',
+              hintStyle: TextStyle(
+                color: Colors.white,
+              ),
+              fillColor: Colors.grey,
+              filled: true,
+
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey, width: 3.0)),
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey, width: 3.0))
+          ),
+        ),
+
       ),
+
       body: Container(
-        child: Text("텍스트2"),
+        child: const Text("텍스트2"),
       ),
     );
   }
@@ -76,10 +96,26 @@ class MenuScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("두 번째"),
+        backgroundColor: Colors.black,
+        title: const Text("중고거래 카테고리",
+    style: TextStyle(
+    color: Colors.white,
+    fontFamily: "중나좋체 OTF Light.otf",
       ),
+        ),
+          centerTitle: false,
+          elevation: 0.0,
+          actions: <Widget>[
+      IconButton(
+      icon: const Icon(Icons.settings),
+      onPressed: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => MenuScreen_Setting()));
+      },
+    ),
+    ]),
       body: Container(
-        child: Text("텍스트2"),
+        child: const Text("텍스트2"),
       ),
     );
   }
@@ -89,11 +125,20 @@ class AlarmScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("두 번째"),
+        title: const Text("두 번째"),
       ),
       body: Container(
-        child: Text("텍스트2"),
+        child: const Text("텍스트2"),
       ),
+    );
+  }
+}
+class MenuScreen_Setting extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar()
+
     );
   }
 }
